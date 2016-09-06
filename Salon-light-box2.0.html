@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            background: black;
+        }
+        @keyframes demo {
+            from {
+                left: 0;
+            }
+            to {
+                left: -113px;
+            }
+        }
+        .rgb {
+            width: 400px;
+            height: 400px;
+            background: -webkit-repeating-linear-gradient(-45deg, red 0, red 20px, #fff 20px, #fff 40px, blue 40px, blue 60px, #fff 60px, #fff 80px);
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            animation: demo 1s linear infinite;
+        }
+
+        .box {
+            width: 113px;
+            height: 300px;
+            border: 1px solid #000000;
+            overflow: hidden;
+            position: relative;
+            margin: 50px auto;
+            box-shadow: 0px 0px 30px #fff, inset 10px 10px 30px #000;;
+        }
+
+        .rgba {
+            width: 113px;
+            height: 300px;
+            background: -webkit-linear-gradient(-0deg, black, white 50%, black);
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            opacity: 0.6;
+        }
+        .inp{
+            margin:30px auto;
+            width: 120px;
+        }
+
+
+    </style>
+    <script>
+window.onload= function () {
+    var oRgb=document.getElementById('rgb');
+    var oC1=document.getElementById('c1');
+    var oC2=document.getElementById('c2');
+    oC2.onchange=oC1.onchange= function () {
+        oRgb.style.background='-webkit-repeating-linear-gradient(-45deg, '+oC1.value+' 0, '+oC1.value+' 20px, #fff 20px, #fff 40px, '+oC2.value+' 40px, '+oC2.value+' 60px, #fff 60px, #fff 80px)'
+    }
+}
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="rgb" id="rgb"></div>
+    <div class="rgba"></div>
+</div>
+<div class="inp">
+    <input type="color" id="c1" value="#ff0000"/>
+    <input type="color" id="c2" value="#0000ff"/>
+</div>
+</body>
+</html>
